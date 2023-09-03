@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- linking a css style sheet -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+  <title>counter</title>
+</head>
+
+<body>
+  <h1>Counter</h1>
+    <h3>number of Visits: {{visits}} {{ "time" if visits == 1 else "times" }}</h3> <!--ternary operator-->
+    <h3>Counter: {{ counters }} </h3>
+  <form action='/increm_session' method='POST'>
+    <input type='submit' value='Add two visits!'>
+  </form> 
+  <form action='/destroy_session' method='POST'>
+    <input type='submit' value='Reset'>
+  </form> 
+  <form action='/specify_increm' method='POST'>
+    <label for='visits'>add count :</label>
+    <input type='text' name='visits' id="visits">
+    <input type='submit' value='Add'>
+  </form> 
+  {# a comment #}
+</body>
+
+</html>
